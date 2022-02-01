@@ -1,0 +1,252 @@
+= CodeReady Workspaces Workshop
+:experimental:
+:imagesdir: images
+
+In this workshop, you will go through the following labs -
+
+1. Explore CodeReady Workspaces
+2. Developing with CodeReady Workspaces
+3. Debugging Applications
+4. CodeReady Worskpaces Plugins
+5. Sharing workspaces
+
+== What is CodeReady Workspaces?
+
+Built on the open Eclipse Che project, Red Hat CodeReady Workspaces uses Kubernetes and containers to provide any member of the development or IT team with a consistent, secure, and zero-configuration development environment. The experience is as fast and familiar as an integrated development environment on your laptop.
+
+Read more about it in the https://developers.redhat.com/products/codeready-workspaces/overview[CodeReady Workspaces documentation^]
+
+== Lab 1 - Explore CodeReady Workspaces
+
+=== 1. Access Your Development Environment
+
+You will be using Red Hat CodeReady Workspaces, an online IDE based on https://www.eclipse.org/che/[Eclipse
+Che^]. *Changes to files are auto-saved every few seconds*, so you don’t need to explicitly save changes.
+
+To get started, access the CodeReady Workspaces instance and log in using the username
+and password you’ve been assigned (e.g. `{{ USER_ID }}/{{ CHE_USER_PASSWORD }}`):
+
+image::che-login.png[cdw, 700]
+
+Once you log in, you’ll be placed on your personal dashboard. Create a new workspace using the following github URL.
+
+image::crw-landing.png[cdw, 700]
+
+You can also click on the name of the workspace in the center, and then click on the green {{ USER_ID}}-namespace that says _Open_ on the top right hand side of the screen:
+
+image::crw-landing-start.png[cdw, 700]
+
+After a minute or two, you’ll be placed in the workspace:
+
+image::che-workspace.png[cdw, 900]
+
+This IDE is based on Eclipse Che (which is in turn based on Microsoft VS Code editor).
+
+You can see icons on the left for navigating between project explorer, search, version control (e.g. Git), debugging, and other plugins.  You’ll use these during the course of this workshop. Feel free to click on them and see what they do:
+
+image::crw-icons.png[cdw, 400]
+
+[NOTE]
+====
+If things get weird or your browser appears, you can simply reload the browser tab to refresh the view.
+====
+
+Many features of CodeReady Workspaces are accessed via *Commands*. You can see a few of the commands listed with links on the home page (e.g. _New File.._, _Git Clone.._, and others).
+
+If you ever need to run commands that you don't see in a menu, you can press kbd:[F1] to open the command window, or the more traditional kbd:[Control+SHIFT+P] (or kbd:[Command+SHIFT+P] on Mac OS X).
+
+Let's import our first project. Click on **Git Clone..** (or type kbd:[F1], enter 'git' and click on the auto-completed _Git Clone.._ )
+
+image::che-workspace-gitclone.png[cdw, 900]
+
+Step through the prompts, using the following value for **Repository URL**. If you use *FireFox*, it may end up pasting extra spaces at the end, so just press backspace after pasting:
+
+[source,none,role="copypaste"]
+----
+https://github.com/RedHat-Middleware-Workshops/cloud-native-workshop-v2m1-labs.git
+----
+
+image::crw-clone-repo.png[crw,900]
+
+Ensure `projects/` is selected, then click on *Select Repository Location* then click on *Open*:
+
+image::crw-add-workspace-2.png[crw, 900]
+
+Note that you probably need to reload your web browser to load the new workspace.
+
+The project is imported into your workspace and is visible in the project explorer (collapse the *OPEN EDITORS*):
+
+image::crw-clone-explorer.png[crw,900]
+
+==== IMPORTANT: Check out proper Git branch
+
+To make sure you're using the right version of the project files, run this command in a CodeReady Terminal:
+
+[source,sh,role="copypaste"]
+----
+cd $CHE_PROJECTS_ROOT/cloud-native-workshop-v2m1-labs && git checkout ocp-4.8
+----
+
+[NOTE]
+====
+The Terminal window in CodeReady Workspaces. You can open a terminal window for any of the containers running in your Developer workspace. For the rest of these labs, anytime you need to run a command in a terminal, you can use the **>_ New Terminal** command on the right:
+
+image::codeready-workspace-terminal.png[codeready-workspace-terminal, 700]
+====
+
+== Lab2 - Developing with CodeReady Workspaces 
+
+==== 1. Search a file
+
+Now the workspace has been started and loaded, I have all the tools that I need, as a developer to start working on the project.
+
+image::lab2_workspace_home.png[workspace_home, 900]
+
+Press F1 to open the command palette, that works exactly the same way as in VisualStudio Code
+
+image::lab2_workspace_palette.png[workspace_palette, 900]
+
+Remove the `>` to search for a file. Search for the file “Post.java” and click “enter” in the command palette to open it. 
+
+image::lab2_workspace_searchfile.png[workspace_search, 900]
+
+==== 2. Start the application in devmode
+
+The demo Post it application is composed of
+
+a. Java backend using Quarkus,
+b. Nodejs/Reactjs frontend and
+c. Mongodb database
+
+The mongodb database has already been started when the workspace started. It’s one of the components of the workspace.
+
+Start the Quarkus backend
+Let’s open the “Workspace Panel”: Go on the right sidebar and click on the last item of the sidebar
+
+image::lab2_start_commands.png[lab2_start_commands, 900]
+
+In the list of components, go on “quarkus-backend-dev” and click on the task “Start DEVMODE quarkus-backend”. 
+
+image::lab2_start_quarkus_backend.png[lab2_start_quarkus_backend, 900]
+
+The quarkus-backend is starting and CodeReady Workspaces is displaying a notification showing there is a new process running in the workspace and asking if we want to open it. 
+
+[TIP]
+=====
+Click only once on the command task
+=====
+
+image::lab2_start_quarkus_backend.png[lab2_start_quarkus_backend, 900]
+
+The quarkus-backend is starting and CodeReady Workspaces is displaying a notification showing there is a new process running in the workspace and asking if we want to open it. 
+
+image::lab2_open_quarkuslink.png[lab2_open_quarkuslink, 900]
+
+
+Click on “Open Link”. 
+
+Inside of the editor, a new panel is displayed showing the quarkus-backend component running. At this stage, it is empty. 
+
+image::lab2_quarkus_preview.png[lab2_quarkus_preview, 900]
+
+At this stage the backend service is running and connected to the mongodb database. 
+
+Let’s start the frontend
+Let’s go back to the “Workspace Panel”
+In the list of component, go on “node-frontend-dev” and click on the task “Start DEV node-frontend”.
+
+PS: Alternatively, you can run “Start PROD node-frontend” that will run a prebuilt version of the frontend (faster but won’t take any live changes).
+
+image::lab2_frontend_command.png[lab2_quarkus_preview, 900]
+
+[TIP]
+=====
+Click only once on the command task
+=====
+
+The node-frontend is starting and CodeReady Workspaces is displaying a notification showing that there is a new process running in the workspace and asking if we want to open it. 
+
+image::lab2_frontend_url.png[lab2_quarkus_preview, 900]
+
+Click on “Open Link”. 
+
+Inside the editor, the preview panel is now the frontend. It shows a form with an empty list of post items. It is possible to add new post items by filling the form.
+
+At this stage, the frontend is running and connected to the quarkus backend. The quarkus backend is started in devmode which allows to provide livereload and opening the debug port.
+
+Lets add a few post items
+
+image::lab2_add_postitems.png[lab2_quarkus_preview, 900]
+
+
+Let’s try to set the title of each post in uppercase. 
+
+Reopen quarkus-backend > Post.java.
+In the `getTitle()` method, use the code completion to set the title in uppercase.
+After `return title`, type `.upper` and the code completion will suggest `toUpperCase()`. Select it.
+
+image::lab2_codecompletion.png[lab2_quarkus_preview, 900]
+
+If needed, use `Ctrl-space` to retrigger the code completion.
+
+Refresh the preview pane: All the titles of post items are now in uppercase.
+
+image::lab2_uppercase.png[lab2_quarkus_preview, 900]
+
+== Lab3 - Debugging Applications
+
+In this lab, you will debug the coolstore microservice application using Java remote debugging and look into line-by-line code execution as the code runs on Quarkus.
+
+==== 1. Enable Remote Debugging
+
+Remote debugging is a useful debugging technique for application development which allows looking into the code that is being executed somewhere else on a different machine and execute the code line-by-line to help investigate bugs and issues. Remote debugging is part of Java SE standard debugging architecture which you can learn more about it in https://docs.oracle.com/javase/8/docs/technotes/guides/jpda/architecture.html[Java SE docs^].
+
+Quarkus in development mode enables "Live Coding" with background compilation, which means that when you modify your Java files and/or your resource files and refresh your browser, these changes will automatically take effect. This works too for resource files like the configuration properties files and even `pom.xml` changes.
+
+When run in Developer Mode (i.e. `mvn quarkus:dev`), Quarkus will also listen for debugging sessions on port `5005` (by default). If your want to wait for the debugger to attach before running you can pass `-Ddebug` on the command line. If you don’t want the debugger at all you can use `-Ddebug=false`.
+
+==== 2. Add a breakpoint to the ‘getContent()’ (line 31).
+
+Let's add a new endpoint
+
+image::lab2_quarkus_breakpoint.png[lab2_quarkus_preview, 900]
+
+Start the debug mode from the top menu ‘Debug’ > ‘Start Debugging’. CodeReady Workspaces is opening the debug pane.
+
+image::lab2_startdebugging.png[lab2_quarkus_preview, 900]
+
+Refresh the preview pane. CodeReady Workspaces is stopping at the break point.
+
+image::lab2_debug_refresh.png[lab2_quarkus_preview, 900]
+
+
+In the debug pane, in the local variable (should be done quickly to avoid timeout), double click on `content: “World”`
+
+image::lab2_debug_highlight.png[lab2_quarkus_preview, 900]
+
+Edit the value of the content, for instance the location where you are.
+
+image::lab2_debug_editvalue.png[lab2_quarkus_preview, 900]
+
+Validate `OK`
+
+Continue (play button)
+
+image::lab2_debug_play.png[lab2_quarkus_preview, 900]
+
+The content should have been changed
+
+image::lab2_debug_newvalue.png[lab2_quarkus_preview, 900]
+
+
+==== Congratulations!
+
+Quarkus apps are just like any other Java app, so debugging is straightforward and supported by many IDEs and CLIs out there. Combined with Live Reload and CodeReady Workspaces, it makes development quick and (relatively) painless!
+
+== Lab4 - CodeReady Workspaces Plugins
+
+Content to be added
+
+== Lab5 - Sharing workspaces
+
+Content to be added

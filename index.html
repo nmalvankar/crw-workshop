@@ -466,13 +466,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_what_is_codeready_workspaces">What is CodeReady Workspaces?</h3>
+<div class="sect1">
+<h2 id="_what_is_codeready_workspaces">What is CodeReady Workspaces?</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Built on the open Eclipse Che project, Red Hat CodeReady Workspaces uses Kubernetes and containers to provide any member of the development or IT team with a consistent, secure, and zero-configuration development environment. The experience is as fast and familiar as an integrated development environment on your laptop.</p>
 </div>
 <div class="paragraph">
 <p>Read more about it in the <a href="https://developers.redhat.com/products/codeready-workspaces/overview" target="_blank" rel="noopener">CodeReady Workspaces documentation</a></p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -621,11 +623,200 @@ and password you’ve been assigned (e.g. <code>{{ USER_ID }}/{{ CHE_USER_PASSW
 </div>
 </div>
 </div>
-<h1 id="_lab2_developing_with_codeready_workspaces" class="sect0">Lab2 - Developing with CodeReady Workspaces</h1>
+<div class="sect1">
+<h2 id="_lab2_developing_with_codeready_workspaces">Lab2 - Developing with CodeReady Workspaces</h2>
+<div class="sectionbody">
+<div class="sect3">
+<h4 id="_1_search_a_file">1. Search a file</h4>
 <div class="paragraph">
-<p>Content to be added</p>
+<p>Now the workspace has been started and loaded, I have all the tools that I need, as a developer to start working on the project.</p>
 </div>
-<h1 id="_lab3_debugging_applications" class="sect0">Lab3 - Debugging Applications</h1>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_workspace_home.png" alt="workspace_home" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>Press F1 to open the command palette, that works exactly the same way as in VisualStudio Code</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_workspace_palette.png" alt="workspace_palette" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>Remove the <code>&gt;</code> to search for a file. Search for the file “Post.java” and click “enter” in the command palette to open it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_workspace_searchfile.png" alt="workspace_search" width="900">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_2_start_the_application_in_devmode">2. Start the application in devmode</h4>
+<div class="paragraph">
+<p>The demo Post it application is composed of</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha">
+<li>
+<p>Java backend using Quarkus,</p>
+</li>
+<li>
+<p>Nodejs/Reactjs frontend and</p>
+</li>
+<li>
+<p>Mongodb database</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The mongodb database has already been started when the workspace started. It’s one of the components of the workspace.</p>
+</div>
+<div class="paragraph">
+<p>Start the Quarkus backend
+Let’s open the “Workspace Panel”: Go on the right sidebar and click on the last item of the sidebar</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_start_commands.png" alt="lab2_start_commands" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>In the list of components, go on “quarkus-backend-dev” and click on the task “Start DEVMODE quarkus-backend”.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_start_quarkus_backend.png" alt="lab2_start_quarkus_backend" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>The quarkus-backend is starting and CodeReady Workspaces is displaying a notification showing there is a new process running in the workspace and asking if we want to open it.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Click only once on the command task</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_start_quarkus_backend.png" alt="lab2_start_quarkus_backend" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>The quarkus-backend is starting and CodeReady Workspaces is displaying a notification showing there is a new process running in the workspace and asking if we want to open it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_open_quarkuslink.png" alt="lab2_open_quarkuslink" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>Click on “Open Link”.</p>
+</div>
+<div class="paragraph">
+<p>Inside of the editor, a new panel is displayed showing the quarkus-backend component running. At this stage, it is empty.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_quarkus_preview.png" alt="lab2_quarkus_preview" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>At this stage the backend service is running and connected to the mongodb database.</p>
+</div>
+<div class="paragraph">
+<p>Let’s start the frontend
+Let’s go back to the “Workspace Panel”
+In the list of component, go on “node-frontend-dev” and click on the task “Start DEV node-frontend”.</p>
+</div>
+<div class="paragraph">
+<p>PS: Alternatively, you can run “Start PROD node-frontend” that will run a prebuilt version of the frontend (faster but won’t take any live changes).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_frontend_command.png" alt="lab2_quarkus_preview" width="900">
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Click only once on the command task</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The node-frontend is starting and CodeReady Workspaces is displaying a notification showing that there is a new process running in the workspace and asking if we want to open it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_frontend_url.png" alt="lab2_quarkus_preview" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>Click on “Open Link”.</p>
+</div>
+<div class="paragraph">
+<p>Inside the editor, the preview panel is now the frontend. It shows a form with an empty list of post items. It is possible to add new post items by filling the form.</p>
+</div>
+<div class="paragraph">
+<p>At this stage, the frontend is running and connected to the quarkus backend. The quarkus backend is started in devmode which allows to provide livereload and opening the debug port.</p>
+</div>
+<div class="paragraph">
+<p>Lets add a few post items</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_add_postitems.png" alt="lab2_quarkus_preview" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>Let’s try to set the title of each post in uppercase.</p>
+</div>
+<div class="paragraph">
+<p>Reopen quarkus-backend &gt; Post.java.
+In the <code>getTitle()</code> method, use the code completion to set the title in uppercase.
+After <code>return title</code>, type <code>.upper</code> and the code completion will suggest <code>toUpperCase()</code>. Select it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_codecompletion.png" alt="lab2_quarkus_preview" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>If needed, use <code>Ctrl-space</code> to retrigger the code completion.</p>
+</div>
+<div class="paragraph">
+<p>Refresh the preview pane: All the titles of post items are now in uppercase.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_uppercase.png" alt="lab2_quarkus_preview" width="900">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lab3_debugging_applications">Lab3 - Debugging Applications</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>In this lab, you will debug the coolstore microservice application using Java remote debugging and look into line-by-line code execution as the code runs on Quarkus.</p>
 </div>
@@ -640,104 +831,67 @@ and password you’ve been assigned (e.g. <code>{{ USER_ID }}/{{ CHE_USER_PASSW
 <div class="paragraph">
 <p>When run in Developer Mode (i.e. <code>mvn quarkus:dev</code>), Quarkus will also listen for debugging sessions on port <code>5005</code> (by default). If your want to wait for the debugger to attach before running you can pass <code>-Ddebug</code> on the command line. If you don’t want the debugger at all you can use <code>-Ddebug=false</code>.</p>
 </div>
-<div class="paragraph">
-<p>Start up the Inventory microservice locally, in development mode, using this command in a CodeReady Terminal:
-Enable remote debugging on Inventory by running the following command in the CodeReady Workspaces Terminal window:</p>
-</div>
-<div class="listingblock copypaste">
-<div class="content">
-<pre class="highlight"><code class="language-sh" data-lang="sh">mvn quarkus:dev -Dquarkus.http.host=0.0.0.0 -f $CHE_PROJECTS_ROOT/cloud-native-workshop-v2m2-labs/inventory</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You should see a bunch of log output that ends with:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">__  ____  __  _____   ___  __ ____  ______
- --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
- -/ /_/ / /_/ / __ |/ , _/ ,&lt; / /_/ /\ \
---\___\_\____/_/ |_/_/|_/_/|_|\____/___/
-Powered by Quarkus 2.2.3.Final-redhat-00013
-INFO  [io.quarkus] (Quarkus Main Thread) inventory 1.0-SNAPSHOT on JVM (powered by Quarkus 2.2.3.Final-redhat-00013) started in 14.001s. Listening on: http://0.0.0.0:8080
-INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, jdbc-h2, jdbc-postgresql, kubernetes, narayana-jta, resteasy, resteasy-jsonb, smallrye-context-propagation, smallrye-health]
-
---
-Tests paused
-Press [r] to resume testing, [o] Toggle test output, [h] for more options&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You can see <strong>Tests paused</strong> by default when a Quarkus application gets started.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Close any popups about port 5005 or 8080 when the app starts up</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_controlling_continuous_testing">Controlling Continuous Testing</h5>
-<div class="paragraph">
-<p>There are various hotkeys you can use to control continuous testing. Pressing <code>h</code> will display the following list of commands in the terminal:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-none" data-lang="none">== Continuous Testing
-
-[r] - Re-run all tests
-[f] - Re-run failed tests
-[b] - Toggle 'broken only' mode, where only failing tests are run (disabled)
-[v] - Print failures from the last test run
-[p] - Pause tests
-[o] - Toggle test output (disabled)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Quarkus also provides a new experimental Dev UI, which is available in dev mode (when you start quarkus with mvn quarkus:dev) at <code>/q/dev</code> by default. It allows you to quickly visualize all the extensions currently loaded, see their status and go directly to their documentation.</p>
-</div>
-<div class="paragraph">
-<p>Click on <code>quarkus-devui</code> endpoint:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/devui-endpoint.png" alt="devui-endpoint" width="700">
-</div>
-</div>
-<div class="paragraph">
-<p>A new web browser will open automatically then it will show you something like this:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/quarkus-devui.png" alt="devui-endpoint" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>You are all set now to start debugging using the tools of you choice.</p>
-</div>
-<div class="paragraph">
-<p>Do not wait for the command to return! The Quarkus maven plugin keeps the forwarded port open so that you can start debugging remotely.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/debug-che-quarkus.png" alt="Quarkus Debug" width="700">
-</div>
-</div>
-</div>
 </div>
 <div class="sect3">
-<h4 id="_2_add_a_bug">2. Add a bug</h4>
+<h4 id="_2_add_a_breakpoint_to_the_getcontent_line_31">2. Add a breakpoint to the ‘getContent()’ (line 31).</h4>
 <div class="paragraph">
-<p>Let&#8217;s add a new endpoint that has a bug we will fix using the debugger.</p>
+<p>Let&#8217;s add a new endpoint</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_quarkus_breakpoint.png" alt="lab2_quarkus_preview" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>Start the debug mode from the top menu ‘Debug’ &gt; ‘Start Debugging’. CodeReady Workspaces is opening the debug pane.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_startdebugging.png" alt="lab2_quarkus_preview" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>Refresh the preview pane. CodeReady Workspaces is stopping at the break point.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_debug_refresh.png" alt="lab2_quarkus_preview" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>In the debug pane, in the local variable (should be done quickly to avoid timeout), double click on <code>content: “World”</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_debug_highlight.png" alt="lab2_quarkus_preview" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>Edit the value of the content, for instance the location where you are.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_debug_editvalue.png" alt="lab2_quarkus_preview" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>Validate <code>OK</code></p>
+</div>
+<div class="paragraph">
+<p>Continue (play button)</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_debug_play.png" alt="lab2_quarkus_preview" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>The content should have been changed</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_debug_newvalue.png" alt="lab2_quarkus_preview" width="900">
+</div>
 </div>
 <div class="paragraph">
 <p>Go back to the <em>Explorer</em> view, and under the <code>cloud-native-workshop-v2m2-labs</code> project, open the <code>inventory/src/main/java/com/redhat/coolstore/InventoryResource.java</code> file. Add a new method which has an off-by-one error:</p>
@@ -921,18 +1075,28 @@ Press [r] to resume testing, [o] Toggle test output, [h] for more options&gt;</c
 <p>Quarkus apps are just like any other Java app, so debugging is straightforward and supported by many IDEs and CLIs out there. Combined with Live Reload and CodeReady Workspaces, it makes development quick and (relatively) painless!</p>
 </div>
 </div>
-<h1 id="_lab4_codeready_workspaces_plugins" class="sect0">Lab4 - CodeReady Workspaces Plugins</h1>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lab4_codeready_workspaces_plugins">Lab4 - CodeReady Workspaces Plugins</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Content to be added</p>
 </div>
-<h1 id="_lab5_sharing_workspaces" class="sect0">Lab5 - Sharing workspaces</h1>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lab5_sharing_workspaces">Lab5 - Sharing workspaces</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Content to be added</p>
+</div>
+</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-01-31 22:33:17 -0500
+Last updated 2022-02-01 16:02:37 -0500
 </div>
 </div>
 </body>
