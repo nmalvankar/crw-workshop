@@ -94,7 +94,13 @@ The Terminal window in CodeReady Workspaces. You can open a terminal window for 
 image::codeready-workspace-terminal.png[codeready-workspace-terminal, 700]
 ====
 
-= Lab2 - Debugging Applications
+= Lab2 - Developing with CodeReady Workspaces 
+:experimental:
+:imagesdir: images
+
+Content to be added
+
+= Lab3 - Debugging Applications
 :experimental:
 :imagesdir: images
 
@@ -286,3 +292,15 @@ Click on the _Stop Debugger_ (red box) to disconnect the debugger, then stop the
 ==== Congratulations!
 
 Quarkus apps are just like any other Java app, so debugging is straightforward and supported by many IDEs and CLIs out there. Combined with Live Reload and CodeReady Workspaces, it makes development quick and (relatively) painless!
+
+= Lab4 - CodeReady Workspaces Plugins
+:experimental:
+:imagesdir: images
+
+Content to be added
+
+= Lab5 - Sharing workspaces
+:experimental:
+:imagesdir: images
+
+Content to be added
