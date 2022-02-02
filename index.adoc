@@ -4,11 +4,11 @@
 
 In this workshop, you will go through the following labs -
 
-1. Explore CodeReady Workspaces
-2. Developing with CodeReady Workspaces
-3. Debugging Applications
-4. CodeReady Worskpaces Plugins
-5. Sharing workspaces
+1. <<lab_1>>
+2. <<lab_2>>
+3. <<lab_3>>
+4. <<lab_4>>
+5. <<lab_5>>
 
 == What is CodeReady Workspaces?
 
@@ -16,19 +16,21 @@ Built on the open Eclipse Che project, Red Hat CodeReady Workspaces uses Kuberne
 
 Read more about it in the https://developers.redhat.com/products/codeready-workspaces/overview[CodeReady Workspaces documentation^]
 
+[#lab_1]
 == Lab 1 - Explore CodeReady Workspaces
 
 === 1. Access Your Development Environment
 
-You will be using Red Hat CodeReady Workspaces, an online IDE based on https://www.eclipse.org/che/[Eclipse
-Che^]. *Changes to files are auto-saved every few seconds*, so you don’t need to explicitly save changes.
+Use the following URL to access the CodeReady Workspaces environment
+
+<URL to be added later>
 
 To get started, access the CodeReady Workspaces instance and log in using the username
 and password you’ve been assigned (e.g. `{{ USER_ID }}/{{ CHE_USER_PASSWORD }}`):
 
 image::che-login.png[cdw, 700]
 
-Once you log in, you’ll be placed on your personal dashboard. Create a new workspace using the following github URL.
+Once you log in, you’ll be placed on your personal dashboard. 
 
 image::crw-landing.png[cdw, 700]
 
@@ -40,7 +42,7 @@ After a minute or two, you’ll be placed in the workspace:
 
 image::che-workspace.png[cdw, 900]
 
-This IDE is based on Eclipse Che (which is in turn based on Microsoft VS Code editor).
+This IDE is based on Eclipse Che.
 
 You can see icons on the left for navigating between project explorer, search, version control (e.g. Git), debugging, and other plugins.  You’ll use these during the course of this workshop. Feel free to click on them and see what they do:
 
@@ -55,24 +57,28 @@ Many features of CodeReady Workspaces are accessed via *Commands*. You can see a
 
 If you ever need to run commands that you don't see in a menu, you can press kbd:[F1] to open the command window, or the more traditional kbd:[Control+SHIFT+P] (or kbd:[Command+SHIFT+P] on Mac OS X).
 
-Let's import our first project. Click on **Git Clone..** (or type kbd:[F1], enter 'git' and click on the auto-completed _Git Clone.._ )
 
-image::che-workspace-gitclone.png[cdw, 900]
+Let's go back to the dashboard by clicking on the chevron (enclosed in yellow rectangle) on the top left side of the screen and create a new workspace using the following github URL.
 
-Step through the prompts, using the following value for **Repository URL**. If you use *FireFox*, it may end up pasting extra spaces at the end, so just press backspace after pasting:
-
-[source,none,role="copypaste"]
 ----
-https://github.com/RedHat-Middleware-Workshops/cloud-native-workshop-v2m1-labs.git
+https://github.com/nmalvankar/quarkus-reactjs-postit-app.git
 ----
 
-image::crw-clone-repo.png[crw,900]
+image::lab1_create_new_workspace.png[cdw, 700]
 
-Ensure `projects/` is selected, then click on *Select Repository Location* then click on *Open*:
 
-image::crw-add-workspace-2.png[crw, 900]
+Click on Create & Open
 
-Note that you probably need to reload your web browser to load the new workspace.
+
+You can check the progress of your workspace as shown below
+
+image::lab1_progress.png[cdw, 700]
+
+
+You can also check the logs for more details 
+
+image::lab1_log.png[cdw, 700]
+
 
 The project is imported into your workspace and is visible in the project explorer (collapse the *OPEN EDITORS*):
 
@@ -84,7 +90,7 @@ To make sure you're using the right version of the project files, run this comma
 
 [source,sh,role="copypaste"]
 ----
-cd $CHE_PROJECTS_ROOT/cloud-native-workshop-v2m1-labs && git checkout ocp-4.8
+cd $CHE_PROJECTS_ROOT/quarkus-reactjs-postit-app && git checkout master
 ----
 
 [NOTE]
@@ -94,9 +100,10 @@ The Terminal window in CodeReady Workspaces. You can open a terminal window for 
 image::codeready-workspace-terminal.png[codeready-workspace-terminal, 700]
 ====
 
-== Lab2 - Developing with CodeReady Workspaces 
+[#lab_2]
+== Lab 2 - Developing with CodeReady Workspaces 
 
-==== 1. Search a file
+==== 1. Search a Java file
 
 Now the workspace has been started and loaded, I have all the tools that I need, as a developer to start working on the project.
 
@@ -120,7 +127,7 @@ c. Mongodb database
 
 The mongodb database has already been started when the workspace started. It’s one of the components of the workspace.
 
-Start the Quarkus backend
+==== Start the Quarkus backend
 Let’s open the “Workspace Panel”: Go on the right sidebar and click on the last item of the sidebar
 
 image::lab2_start_commands.png[lab2_start_commands, 900]
@@ -132,9 +139,9 @@ image::lab2_start_quarkus_backend.png[lab2_start_quarkus_backend, 900]
 The quarkus-backend is starting and CodeReady Workspaces is displaying a notification showing there is a new process running in the workspace and asking if we want to open it. 
 
 [TIP]
-=====
+======
 Click only once on the command task
-=====
+======
 
 image::lab2_start_quarkus_backend.png[lab2_start_quarkus_backend, 900]
 
@@ -151,7 +158,7 @@ image::lab2_quarkus_preview.png[lab2_quarkus_preview, 900]
 
 At this stage the backend service is running and connected to the mongodb database. 
 
-Let’s start the frontend
+==== Let’s start the frontend
 Let’s go back to the “Workspace Panel”
 In the list of component, go on “node-frontend-dev” and click on the task “Start DEV node-frontend”.
 
@@ -160,9 +167,9 @@ PS: Alternatively, you can run “Start PROD node-frontend” that will run a pr
 image::lab2_frontend_command.png[lab2_quarkus_preview, 900]
 
 [TIP]
-=====
+======
 Click only once on the command task
-=====
+======
 
 The node-frontend is starting and CodeReady Workspaces is displaying a notification showing that there is a new process running in the workspace and asking if we want to open it. 
 
@@ -174,12 +181,12 @@ Inside the editor, the preview panel is now the frontend. It shows a form with a
 
 At this stage, the frontend is running and connected to the quarkus backend. The quarkus backend is started in devmode which allows to provide livereload and opening the debug port.
 
-Lets add a few post items
+==== Lets add a few post items
 
 image::lab2_add_postitems.png[lab2_quarkus_preview, 900]
 
 
-Let’s try to set the title of each post in uppercase. 
+==== Let’s try to set the title of each post in uppercase. 
 
 Reopen quarkus-backend > Post.java.
 In the `getTitle()` method, use the code completion to set the title in uppercase.
@@ -193,7 +200,8 @@ Refresh the preview pane: All the titles of post items are now in uppercase.
 
 image::lab2_uppercase.png[lab2_quarkus_preview, 900]
 
-== Lab3 - Debugging Applications
+[#lab_3]
+== Lab 3 - Debugging Applications
 
 In this lab, you will debug the coolstore microservice application using Java remote debugging and look into line-by-line code execution as the code runs on Quarkus.
 
@@ -205,9 +213,9 @@ Quarkus in development mode enables "Live Coding" with background compilation, w
 
 When run in Developer Mode (i.e. `mvn quarkus:dev`), Quarkus will also listen for debugging sessions on port `5005` (by default). If your want to wait for the debugger to attach before running you can pass `-Ddebug` on the command line. If you don’t want the debugger at all you can use `-Ddebug=false`.
 
-==== 2. Add a breakpoint to the ‘getContent()’ (line 31).
+==== 2. Add a breakpoint to debug the application.
 
-Let's add a new endpoint
+Let's add a new endpoint in the ‘getContent()’ method of Post.java (line 31)
 
 image::lab2_quarkus_breakpoint.png[lab2_quarkus_preview, 900]
 
@@ -241,12 +249,54 @@ image::lab2_debug_newvalue.png[lab2_quarkus_preview, 900]
 
 ==== Congratulations!
 
-Quarkus apps are just like any other Java app, so debugging is straightforward and supported by many IDEs and CLIs out there. Combined with Live Reload and CodeReady Workspaces, it makes development quick and (relatively) painless!
+You have successfully run the Postit application locally and debugged the application using remote debugging
 
-== Lab4 - CodeReady Workspaces Plugins
+[#lab_4]
+== Lab 4 - CodeReady Workspaces Plugins
 
-Content to be added
+A Che-Theia plug-in is an extension of the development environment isolated from the IDE. Plug-ins can be packaged as files or containers to provide their own dependencies.
 
-== Lab5 - Sharing workspaces
+Extending Che-Theia using plug-ins can enable the following capabilities:
+
+Language support: Extend the supported languages by relying on the Language Server Protocol.
+Debuggers: Extend debugging capabilities with the Debug Adapter Protocol.
+Development Tools: Integrate your favorite linters, and as testing and performance tools.
+Menus, panels, and commands: Add your own items to the IDE components.
+Themes: Build custom themes, extend the UI, or customize icon themes.
+Snippets, formatters, and syntax highlighting: Enhance comfort of use with supported programming languages.
+Keybindings: Add new keymaps and popular keybindings to make the environment feel natural.
+
+You can checkout the plugins at View > Plugins
+
+image::lab4_plugins.png[Plugins, 900]
+
+For checking out the installed plugins, enter "@installed" in the text box 
+
+image::lab4_installed_plugins.png[Installed Plugins, 900]
+
+You can also install a plugin thats available in the list of plugins for your workspace. 
+
+image::lab4_avail_plugins.png[Available Plugins, 900]
+
+You may be prompted to restart the workspace for the plugin to be activated as shown below
+
+image::lab4_restart_workspace.png[Restart workspace, 900]
+
+
+
+Once you restart the workspace, the plugin should be ready for use
+
+
+[NOTE]
+======
+Visual Studio Code (VS Code) extensions can be installed to extend the functionality of a CodeReady Workspaces workspace. VS Code extensions can run in the Che-Theia editor container, or they can be packaged in their own isolated and pre-configured containers with their prerequisites.
+
+These plug-ins can be added to the plug-in registry, then easily reused by anyone in the same organization with access to that workspaces installation.
+======
+
+
+
+[#lab_5]
+== Lab 5 - Sharing workspaces
 
 Content to be added

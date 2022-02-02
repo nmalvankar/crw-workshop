@@ -448,19 +448,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Explore CodeReady Workspaces</p>
+<p><a href="#lab_1">Lab 1 - Explore CodeReady Workspaces</a></p>
 </li>
 <li>
-<p>Developing with CodeReady Workspaces</p>
+<p><a href="#lab_2">Lab 2 - Developing with CodeReady Workspaces</a></p>
 </li>
 <li>
-<p>Debugging Applications</p>
+<p><a href="#lab_3">Lab 3 - Debugging Applications</a></p>
 </li>
 <li>
-<p>CodeReady Worskpaces Plugins</p>
+<p><a href="#lab_4">Lab 4 - CodeReady Workspaces Plugins</a></p>
 </li>
 <li>
-<p>Sharing workspaces</p>
+<p><a href="#lab_5">Lab 5 - Sharing workspaces</a></p>
 </li>
 </ol>
 </div>
@@ -478,13 +478,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_lab_1_explore_codeready_workspaces">Lab 1 - Explore CodeReady Workspaces</h2>
+<h2 id="lab_1">Lab 1 - Explore CodeReady Workspaces</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_1_access_your_development_environment">1. Access Your Development Environment</h3>
 <div class="paragraph">
-<p>You will be using Red Hat CodeReady Workspaces, an online IDE based on <a href="https://www.eclipse.org/che/" target="_blank" rel="noopener">Eclipse
-Che</a>. <strong>Changes to files are auto-saved every few seconds</strong>, so you don’t need to explicitly save changes.</p>
+<p>Use the following URL to access the CodeReady Workspaces environment</p>
+</div>
+<div class="paragraph">
+<p>&lt;URL to be added later&gt;</p>
 </div>
 <div class="paragraph">
 <p>To get started, access the CodeReady Workspaces instance and log in using the username
@@ -496,7 +498,7 @@ and password you’ve been assigned (e.g. <code>{{ USER_ID }}/{{ CHE_USER_PASSW
 </div>
 </div>
 <div class="paragraph">
-<p>Once you log in, you’ll be placed on your personal dashboard. Create a new workspace using the following github URL.</p>
+<p>Once you log in, you’ll be placed on your personal dashboard.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -520,7 +522,7 @@ and password you’ve been assigned (e.g. <code>{{ USER_ID }}/{{ CHE_USER_PASSW
 </div>
 </div>
 <div class="paragraph">
-<p>This IDE is based on Eclipse Che (which is in turn based on Microsoft VS Code editor).</p>
+<p>This IDE is based on Eclipse Che.</p>
 </div>
 <div class="paragraph">
 <p>You can see icons on the left for navigating between project explorer, search, version control (e.g. Git), debugging, and other plugins.  You’ll use these during the course of this workshop. Feel free to click on them and see what they do:</p>
@@ -551,36 +553,36 @@ and password you’ve been assigned (e.g. <code>{{ USER_ID }}/{{ CHE_USER_PASSW
 <p>If you ever need to run commands that you don&#8217;t see in a menu, you can press <kbd>F1</kbd> to open the command window, or the more traditional <span class="keyseq"><kbd>Control</kbd>+<kbd>SHIFT</kbd>+<kbd>P</kbd></span> (or <span class="keyseq"><kbd>Command</kbd>+<kbd>SHIFT</kbd>+<kbd>P</kbd></span> on Mac OS X).</p>
 </div>
 <div class="paragraph">
-<p>Let&#8217;s import our first project. Click on <strong>Git Clone..</strong> (or type <kbd>F1</kbd>, enter 'git' and click on the auto-completed <em>Git Clone..</em> )</p>
+<p>Let&#8217;s go back to the dashboard by clicking on the chevron (enclosed in yellow rectangle) on the top left side of the screen and create a new workspace using the following github URL.</p>
 </div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="images/che-workspace-gitclone.png" alt="cdw" width="900">
-</div>
-</div>
-<div class="paragraph">
-<p>Step through the prompts, using the following value for <strong>Repository URL</strong>. If you use <strong>FireFox</strong>, it may end up pasting extra spaces at the end, so just press backspace after pasting:</p>
-</div>
-<div class="listingblock copypaste">
-<div class="content">
-<pre class="highlight"><code class="language-none" data-lang="none">https://github.com/RedHat-Middleware-Workshops/cloud-native-workshop-v2m1-labs.git</code></pre>
+<pre>https://github.com/nmalvankar/quarkus-reactjs-postit-app.git</pre>
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/crw-clone-repo.png" alt="crw" width="900">
+<img src="images/lab1_create_new_workspace.png" alt="cdw" width="700">
 </div>
 </div>
 <div class="paragraph">
-<p>Ensure <code>projects/</code> is selected, then click on <strong>Select Repository Location</strong> then click on <strong>Open</strong>:</p>
+<p>Click on Create &amp; Open</p>
+</div>
+<div class="paragraph">
+<p>You can check the progress of your workspace as shown below</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/crw-add-workspace-2.png" alt="crw" width="900">
+<img src="images/lab1_progress.png" alt="cdw" width="700">
 </div>
 </div>
 <div class="paragraph">
-<p>Note that you probably need to reload your web browser to load the new workspace.</p>
+<p>You can also check the logs for more details</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab1_log.png" alt="cdw" width="700">
+</div>
 </div>
 <div class="paragraph">
 <p>The project is imported into your workspace and is visible in the project explorer (collapse the <strong>OPEN EDITORS</strong>):</p>
@@ -597,7 +599,7 @@ and password you’ve been assigned (e.g. <code>{{ USER_ID }}/{{ CHE_USER_PASSW
 </div>
 <div class="listingblock copypaste">
 <div class="content">
-<pre class="highlight"><code class="language-sh" data-lang="sh">cd $CHE_PROJECTS_ROOT/cloud-native-workshop-v2m1-labs &amp;&amp; git checkout ocp-4.8</code></pre>
+<pre class="highlight"><code class="language-sh" data-lang="sh">cd $CHE_PROJECTS_ROOT/quarkus-reactjs-postit-app &amp;&amp; git checkout master</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -624,10 +626,10 @@ and password you’ve been assigned (e.g. <code>{{ USER_ID }}/{{ CHE_USER_PASSW
 </div>
 </div>
 <div class="sect1">
-<h2 id="_lab2_developing_with_codeready_workspaces">Lab2 - Developing with CodeReady Workspaces</h2>
+<h2 id="lab_2">Lab 2 - Developing with CodeReady Workspaces</h2>
 <div class="sectionbody">
 <div class="sect3">
-<h4 id="_1_search_a_file">1. Search a file</h4>
+<h4 id="_1_search_a_java_file">1. Search a Java file</h4>
 <div class="paragraph">
 <p>Now the workspace has been started and loaded, I have all the tools that I need, as a developer to start working on the project.</p>
 </div>
@@ -674,9 +676,11 @@ and password you’ve been assigned (e.g. <code>{{ USER_ID }}/{{ CHE_USER_PASSW
 <div class="paragraph">
 <p>The mongodb database has already been started when the workspace started. It’s one of the components of the workspace.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_start_the_quarkus_backend">Start the Quarkus backend</h4>
 <div class="paragraph">
-<p>Start the Quarkus backend
-Let’s open the “Workspace Panel”: Go on the right sidebar and click on the last item of the sidebar</p>
+<p>Let’s open the “Workspace Panel”: Go on the right sidebar and click on the last item of the sidebar</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -735,9 +739,11 @@ Let’s open the “Workspace Panel”: Go on the right sidebar and click on the
 <div class="paragraph">
 <p>At this stage the backend service is running and connected to the mongodb database.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_lets_start_the_frontend">Let’s start the frontend</h4>
 <div class="paragraph">
-<p>Let’s start the frontend
-Let’s go back to the “Workspace Panel”
+<p>Let’s go back to the “Workspace Panel”
 In the list of component, go on “node-frontend-dev” and click on the task “Start DEV node-frontend”.</p>
 </div>
 <div class="paragraph">
@@ -779,17 +785,17 @@ In the list of component, go on “node-frontend-dev” and click on the task �
 <div class="paragraph">
 <p>At this stage, the frontend is running and connected to the quarkus backend. The quarkus backend is started in devmode which allows to provide livereload and opening the debug port.</p>
 </div>
-<div class="paragraph">
-<p>Lets add a few post items</p>
 </div>
+<div class="sect3">
+<h4 id="_lets_add_a_few_post_items">Lets add a few post items</h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/lab2_add_postitems.png" alt="lab2_quarkus_preview" width="900">
 </div>
 </div>
-<div class="paragraph">
-<p>Let’s try to set the title of each post in uppercase.</p>
 </div>
+<div class="sect3">
+<h4 id="_lets_try_to_set_the_title_of_each_post_in_uppercase">Let’s try to set the title of each post in uppercase.</h4>
 <div class="paragraph">
 <p>Reopen quarkus-backend &gt; Post.java.
 In the <code>getTitle()</code> method, use the code completion to set the title in uppercase.
@@ -815,7 +821,7 @@ After <code>return title</code>, type <code>.upper</code> and the code completio
 </div>
 </div>
 <div class="sect1">
-<h2 id="_lab3_debugging_applications">Lab3 - Debugging Applications</h2>
+<h2 id="lab_3">Lab 3 - Debugging Applications</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In this lab, you will debug the coolstore microservice application using Java remote debugging and look into line-by-line code execution as the code runs on Quarkus.</p>
@@ -833,9 +839,9 @@ After <code>return title</code>, type <code>.upper</code> and the code completio
 </div>
 </div>
 <div class="sect3">
-<h4 id="_2_add_a_breakpoint_to_the_getcontent_line_31">2. Add a breakpoint to the ‘getContent()’ (line 31).</h4>
+<h4 id="_2_add_a_breakpoint_to_debug_the_application">2. Add a breakpoint to debug the application.</h4>
 <div class="paragraph">
-<p>Let&#8217;s add a new endpoint</p>
+<p>Let&#8217;s add a new endpoint in the ‘getContent()’ method of Post.java (line 31)</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -893,166 +899,67 @@ After <code>return title</code>, type <code>.upper</code> and the code completio
 <img src="images/lab2_debug_newvalue.png" alt="lab2_quarkus_preview" width="900">
 </div>
 </div>
-<div class="paragraph">
-<p>Go back to the <em>Explorer</em> view, and under the <code>cloud-native-workshop-v2m2-labs</code> project, open the <code>inventory/src/main/java/com/redhat/coolstore/InventoryResource.java</code> file. Add a new method which has an off-by-one error:</p>
-</div>
-<div class="listingblock copypaste">
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">    @GET
-    @Path("/lastletter/{itemId}")
-    @Produces("application/text-plain")
-    public String lastLetter(@PathParam("itemId") String itemId) {
-        Inventory item = Inventory.find("itemId", itemId).firstResult();
-        String location = item.location;
-        int len = location.length();
-        String lastLetter = location.substring(len);
-        return lastLetter;
-    }</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This method retrieves the location of inventory, and outputs the last letter in the name of the location. After adding this method, try it out with item <code>165613</code>, which has inventory in <code>Seoul</code> and we&#8217;d expect the last letter <code>l</code> to be output. Open another Terminal and run the command:</p>
-</div>
-<div class="listingblock copypaste">
-<div class="content">
-<pre class="highlight"><code class="language-sh" data-lang="sh">curl http://localhost:8080/services/inventory/lastletter/165613</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You don&#8217;t see the letter <code>l</code> do you? You should see:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/debug-che-quarkus-lastletter.png" alt="Quarkus Debug" width="700">
-</div>
-</div>
-<div class="paragraph">
-<p>There&#8217;s no <code>l</code>! You can probably spot the error, but let&#8217;s walk through the debugger.</p>
-</div>
 </div>
 <div class="sect3">
-<h4 id="_2_debug_with_codeready_workspaces">2. Debug with CodeReady Workspaces</h4>
+<h4 id="_congratulations">Congratulations!</h4>
 <div class="paragraph">
-<p>Click on the Debug icon on the left, select <em>Attach to App</em> in the drop-down, and click the green <em>Start Debugging</em> Icon:</p>
+<p>You have successfully run the Postit application locally and debugged the application using remote debugging</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="lab_4">Lab 4 - CodeReady Workspaces Plugins</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A Che-Theia plug-in is an extension of the development environment isolated from the IDE. Plug-ins can be packaged as files or containers to provide their own dependencies.</p>
+</div>
+<div class="paragraph">
+<p>Extending Che-Theia using plug-ins can enable the following capabilities:</p>
+</div>
+<div class="paragraph">
+<p>Language support: Extend the supported languages by relying on the Language Server Protocol.
+Debuggers: Extend debugging capabilities with the Debug Adapter Protocol.
+Development Tools: Integrate your favorite linters, and as testing and performance tools.
+Menus, panels, and commands: Add your own items to the IDE components.
+Themes: Build custom themes, extend the UI, or customize icon themes.
+Snippets, formatters, and syntax highlighting: Enhance comfort of use with supported programming languages.
+Keybindings: Add new keymaps and popular keybindings to make the environment feel natural.</p>
+</div>
+<div class="paragraph">
+<p>You can checkout the plugins at View &gt; Plugins</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/debug-che-quarkus-attach.png" alt="Quarkus Debug" width="700">
+<img src="images/lab4_plugins.png" alt="Plugins" width="900">
 </div>
 </div>
 <div class="paragraph">
-<p>You may see <code>[Warn] The debugger and the debuggee are running in different versions of JVMs. You could see wrong source mapping results.</code> You can ignore this warning, as long as the JVM versions are in the same major version family it won&#8217;t be a problem.</p>
-</div>
-<div class="paragraph">
-<p>You should see a list of Threads in the debug console.</p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p><strong>If you get errors or strange messages about Java Language Server or other failures</strong>, you may need to restart the Java Language Server. To do this, press <kbd>F1</kbd> to open the command window, or the more traditional <span class="keyseq"><kbd>Control</kbd>+<kbd>SHIFT</kbd>+<kbd>P</kbd></span> (or <span class="keyseq"><kbd>Command</kbd>+<kbd>SHIFT</kbd>+<kbd>P</kbd></span> on Mac OS X). You can also use the <strong>View &gt; Find Command&#8230;&#8203;</strong>. Type <code>java</code> and click on the command named <strong>Java: Clean the Java language server workspace</strong> as shown:</p>
+<p>For checking out the installed plugins, enter "@installed" in the text box</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/clean-jls.png" alt="JLS" width="900">
+<img src="images/lab4_installed_plugins.png" alt="Installed Plugins" width="900">
 </div>
 </div>
 <div class="paragraph">
-<p>This will restart the Java language server. Once it&#8217;s restarted and you&#8217;re back in your workspace, click the <em>Attach to App</em> green icon once again to attach the debugger and proceed below.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Go back to the <em>Explorer</em> view. In the new method you added, add a breakpoint by clicking to the left of the first line in that method to cause a red dot to appear, as shown:</p>
+<p>You can also install a plugin thats available in the list of plugins for your workspace.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/debug-che-breakpoint.png" alt="Add Breakpoint" width="700">
+<img src="images/lab4_avail_plugins.png" alt="Available Plugins" width="900">
 </div>
 </div>
 <div class="paragraph">
-<p>Open a new Terminal and invoke the new method using the same <code>curl</code> command:</p>
-</div>
-<div class="listingblock copypaste">
-<div class="content">
-<pre class="highlight"><code class="language-sh" data-lang="sh">curl http://localhost:8080/services/inventory/lastletter/165613</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This command will appear to hang, while the debugger intercepts the call. Switch back to the Debugger view to see the state:</p>
+<p>You may be prompted to restart the workspace for the plugin to be activated as shown below</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/debug-che-breakpoint-hit.png" alt="Add Breakpoint" width="700">
+<img src="images/lab4_restart_workspace.png" alt="Restart workspace" width="900">
 </div>
 </div>
 <div class="paragraph">
-<p>Click on the <em>Step Over</em> icon to execute one line and retrieve the inventory object for the given product id from the database and see the yellow cursor advance one line.</p>
-</div>
-<div class="paragraph">
-<p>Expand the <em>Local Variables</em> in the lower left, to see the variables for <code>itemId</code> passed to the method and <code>item</code> element retrieved from the database. If you don&#8217;t see them, click on the small arrow next to <em>Locals</em> to expand the list.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/debug-che-step-over.png" alt="Step Over" width="900">
-</div>
-</div>
-<div class="paragraph">
-<p>Step over 2 more times, and note the value of <code>location</code> is <code>Seoul</code> and <code>len</code> is set to the length of <code>Seoul</code> which is <code>5</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/debug-che-step-over2.png" alt="Step Over" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p>One more step-over, and you can clearly see that <code>lastLetter</code> is blank (empty string). It&#8217;s an off-by-one error!</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/debug-che-error.png" alt="Step Over" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Click the Continue button to let the method finish and return the empty value to <code>curl</code>:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/debug-che-continue.png" alt="Step Over" width="600">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_3_fix_and_confirm">3. Fix and Confirm</h4>
-<div class="paragraph">
-<p>The off-by-one error can be fixed simply by fixing the call to <code>substring()</code>. Fix the bug by changing the line with <code>substring()</code> to read:</p>
-</div>
-<div class="listingblock copypaste">
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">        String lastLetter = location.substring(len - 1);</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Execute the command again:</p>
-</div>
-<div class="listingblock copypaste">
-<div class="content">
-<pre class="highlight"><code class="language-sh" data-lang="sh">curl http://localhost:8080/services/inventory/lastletter/165613</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The debugger will again catch the execution. Step through with the debugger as you did previously and confirm the value of <code>lastLetter</code> is <code>l</code> and is properly returned when the method is finished:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/debug-che-final2.png" alt="Step Over" width="1000">
-</div>
+<p>Once you restart the workspace, the plugin should be ready for use</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1062,31 +969,19 @@ After <code>return title</code>, type <code>.upper</code> and the code completio
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Click on the <em>Stop Debugger</em> (red box) to disconnect the debugger, then stop the app by typing <kbd>CTRL-C</kbd> in the Terminal in which the app runs.</p>
+<p>Visual Studio Code (VS Code) extensions can be installed to extend the functionality of a CodeReady Workspaces workspace. VS Code extensions can run in the Che-Theia editor container, or they can be packaged in their own isolated and pre-configured containers with their prerequisites.</p>
+</div>
+<div class="paragraph">
+<p>These plug-ins can be added to the plug-in registry, then easily reused by anyone in the same organization with access to that workspaces installation.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_congratulations">Congratulations!</h4>
-<div class="paragraph">
-<p>Quarkus apps are just like any other Java app, so debugging is straightforward and supported by many IDEs and CLIs out there. Combined with Live Reload and CodeReady Workspaces, it makes development quick and (relatively) painless!</p>
-</div>
-</div>
-</div>
 </div>
 <div class="sect1">
-<h2 id="_lab4_codeready_workspaces_plugins">Lab4 - CodeReady Workspaces Plugins</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Content to be added</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_lab5_sharing_workspaces">Lab5 - Sharing workspaces</h2>
+<h2 id="lab_5">Lab 5 - Sharing workspaces</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Content to be added</p>
@@ -1096,7 +991,7 @@ After <code>return title</code>, type <code>.upper</code> and the code completio
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-02-01 16:02:37 -0500
+Last updated 2022-02-02 12:09:16 -0500
 </div>
 </div>
 </body>
