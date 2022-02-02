@@ -585,6 +585,17 @@ and password you’ve been assigned (e.g. <code>{{ USER_ID }}/{{ CHE_USER_PASSW
 </div>
 </div>
 <div class="paragraph">
+<p>You will be prompted to trust the authors of the git repository. Please click on "Yes, I trust"</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_trust_gitrepo.png" alt="cdw" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p>You may be prompted to add any additional plugin based on Automatic plug-in recommendation in CodeReady Workspaces. Please click on "No" as we don&#8217;t need any additional plugins to be installed for this workshop.</p>
+</div>
+<div class="paragraph">
 <p>The project is imported into your workspace and is visible in the project explorer (collapse the <strong>OPEN EDITORS</strong>):</p>
 </div>
 <div class="imageblock">
@@ -817,6 +828,60 @@ After <code>return title</code>, type <code>.upper</code> and the code completio
 <img src="images/lab2_uppercase.png" alt="lab2_quarkus_preview" width="900">
 </div>
 </div>
+<div class="paragraph">
+<p>Let&#8217;s create a C++ and/or python based workspace and try out a few simple examples. First, lets click on the chevron at the top left section and then click on Create Workspaces.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_create_new_workspace.png" alt="lab2_quarkus_preview" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>Lets stop the postit-app workspace</p>
+</div>
+<div class="paragraph">
+<p>Now lets select a sample C workspace to try out some sample C examples</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_workspace_cplus.png" alt="lab2_quarkus_preview" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>Lets open factorial.cpp</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_factorial.png" alt="lab2_quarkus_preview" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>Run the command from the workspace - "Build current algorithm"</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_build.png" alt="lab2_quarkus_preview" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>This should create a bin.out file in the root directory. Lets run this algorithm now</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_run.png" alt="lab2_quarkus_preview" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>Feel free to run other examples to explore the sample C++ workspace</p>
+</div>
+<div class="paragraph">
+<p>You can also explore the sample python workspace in a similar way</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab2_python.png" alt="Python workspace" width="900">
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -984,14 +1049,146 @@ Keybindings: Add new keymaps and popular keybindings to make the environment fee
 <h2 id="lab_5">Lab 5 - Sharing workspaces</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Content to be added</p>
+<p>Red Hat CodeReady Workspaces helps deliver a secure, sharable developer workspaces. These workspaces include all the tools and dependencies needed to code, build, test, run, and debug your applications. The entire workspace runs on the browser, so there’s nothing to install on your machine.</p>
+</div>
+<div class="paragraph">
+<p>Red Hat CodeReady Workspaces also makes sharing and onboarding of workspaces easy. You can create a factory based on a workspace. Any authorized person on your team can open the factory’s URL and create a new workspace using a devfile.</p>
+</div>
+<div class="sect2">
+<h3 id="_what_is_a_devfile">What is a devfile?</h3>
+<div class="paragraph">
+<p>A devfile is a file that describes and define a development environment:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the source code</p>
+</li>
+<li>
+<p>the development components (browser IDE tools and application runtimes)</p>
+</li>
+<li>
+<p>a list of pre-defined commands</p>
+</li>
+<li>
+<p>projects to clone</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Devfiles are YAML files that CodeReady Workspaces consumes and transforms into a cloud workspace composed of multiple containers. The devfile can be saved in the root folder of a Git repository, a feature branch of a Git repository, a publicly accessible destination, or as a separate, locally stored artifact.</p>
+</div>
+<div class="paragraph">
+<p>When creating a workspace, CodeReady Workspaces uses that definition to initiate everything and run all the containers for the required tools and application runtimes. CodeReady Workspaces also mounts file-system volumes to make source code available to the workspace.</p>
+</div>
+<div class="paragraph">
+<p>Devfiles can be versioned with the project source code. When there is a need for a workspace to fix an old maintenance branch, the project devfile provides a definition of the workspace with the tools and the exact dependencies to start working on the old branch. Use it to instantiate workspaces on demand.</p>
+</div>
+<div class="paragraph">
+<p>CodeReady Workspaces maintains the devfile up-to-date with the tools used in the workspace:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Projects of the workspace (path, Git location, branch)</p>
+</li>
+<li>
+<p>Commands to perform daily tasks (build, run, test, debug)</p>
+</li>
+<li>
+<p>Runtime environment (container images to run the application)</p>
+</li>
+<li>
+<p>Che-Theia plug-ins with tools, IDE features, and helpers that a developer would use in the workspace (Git, Java support, SonarLint, Pull Request)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_creating_a_workspace_from_a_remote_devfile">Creating a workspace from a remote devfile</h3>
+<div class="sect3">
+<h4 id="_creating_a_workspace_from_the_default_branch_of_a_git_repository">Creating a workspace from the default branch of a Git repository</h4>
+<div class="paragraph">
+<p>This section describes how to start a CodeReady Workspaces workspace using a factory URL. The factory URL is a link pointing CodeReady Workspaces to a Git source repository containing a devfile.</p>
+</div>
+<div class="paragraph">
+<p>The factory URL exist in two forms:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the short form /#$URL</p>
+</li>
+<li>
+<p>long /f?url=$URL form that supports additional configuration parameters used in previous versions of CodeReady Workspaces</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Run the workspace by opening the factory URL. Two formats are available:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://codeready-base-url/#&lt;GIT_REPOSITORY_URL&gt" class="bare">https://codeready-base-url/#&lt;GIT_REPOSITORY_URL&gt</a>;
+This is the short format.</p>
+</li>
+<li>
+<p><a href="https://codeready-base-url/f?url=&lt;GIT_REPOSITORY_URL&gt" class="bare">https://codeready-base-url/f?url=&lt;GIT_REPOSITORY_URL&gt</a>;
+This long format supports additional configuration parameters.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here are some examples -</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Create a workspace on Eclipse Che hosted by Red Hat from the default branch of the <a href="https://github.com/eclipse-che/che-server" class="bare">https://github.com/eclipse-che/che-server</a> repository using the short factory URL format.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://workspaces.openshift.com/#https://github.com/eclipse-che/che-server" class="bare">https://workspaces.openshift.com/#https://github.com/eclipse-che/che-server</a></p>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Create a workspace on Eclipse Che hosted by Red Hat from the default branch of the <a href="https://github.com/eclipse-che/che-server" class="bare">https://github.com/eclipse-che/che-server</a> repository using the long factory URL format.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://workspaces.openshift.com/f?url=https://github.com/eclipse-che/che-server" class="bare">https://workspaces.openshift.com/f?url=https://github.com/eclipse-che/che-server</a></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Lets use this example to create a new workspace using the factory url</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>https://codeready-labs-infra.apps.cluster-9nqn5.9nqn5.sandbox1117.opentlc.com/f?url=https://github.com/nmalvankar/quarkus-reactjs-postit-app.git</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lab5_sharing.png" alt="Available Plugins" width="900">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_congratulations_2">Congratulations!</h4>
+<div class="paragraph">
+<p>You have successfully completed the CodeReady Workspaces Workshop!</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-02-02 12:09:16 -0500
+Last updated 2022-02-02 17:51:22 -0500
 </div>
 </div>
 </body>

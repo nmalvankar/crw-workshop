@@ -80,6 +80,14 @@ You can also check the logs for more details
 image::lab1_log.png[cdw, 700]
 
 
+You will be prompted to trust the authors of the git repository. Please click on "Yes, I trust"
+
+image::lab2_trust_gitrepo.png[cdw, 700]
+
+You may be prompted to add any additional plugin based on Automatic plug-in recommendation in CodeReady Workspaces. Please click on "No" as we don't need any additional plugins to be installed for this workshop.
+
+
+
 The project is imported into your workspace and is visible in the project explorer (collapse the *OPEN EDITORS*):
 
 image::crw-clone-explorer.png[crw,900]
@@ -200,6 +208,41 @@ Refresh the preview pane: All the titles of post items are now in uppercase.
 
 image::lab2_uppercase.png[lab2_quarkus_preview, 900]
 
+
+Let's create a C++ and/or python based workspace and try out a few simple examples. First, lets click on the chevron at the top left section and then click on Create Workspaces.
+
+
+image::lab2_create_new_workspace.png[lab2_quarkus_preview, 900]
+
+
+Lets stop the postit-app workspace 
+
+
+Now lets select a sample C++ workspace to try out some sample C++ examples
+
+image::lab2_workspace_cplus.png[lab2_quarkus_preview, 900]
+
+
+Lets open factorial.cpp
+
+image::lab2_factorial.png[lab2_quarkus_preview, 900]
+
+Run the command from the workspace - "Build current algorithm"
+
+image::lab2_build.png[lab2_quarkus_preview, 900]
+
+This should create a bin.out file in the root directory. Lets run this algorithm now
+
+image::lab2_run.png[lab2_quarkus_preview, 900]
+
+Feel free to run other examples to explore the sample C++ workspace
+
+
+You can also explore the sample python workspace in a similar way
+
+image::lab2_python.png[Python workspace, 900]
+
+
 [#lab_3]
 == Lab 3 - Debugging Applications
 
@@ -283,7 +326,6 @@ You may be prompted to restart the workspace for the plugin to be activated as s
 image::lab4_restart_workspace.png[Restart workspace, 900]
 
 
-
 Once you restart the workspace, the plugin should be ready for use
 
 
@@ -299,4 +341,83 @@ These plug-ins can be added to the plug-in registry, then easily reused by anyon
 [#lab_5]
 == Lab 5 - Sharing workspaces
 
-Content to be added
+Red Hat CodeReady Workspaces helps deliver a secure, sharable developer workspaces. These workspaces include all the tools and dependencies needed to code, build, test, run, and debug your applications. The entire workspace runs on the browser, so there’s nothing to install on your machine.
+
+Red Hat CodeReady Workspaces also makes sharing and onboarding of workspaces easy. You can create a factory based on a workspace. Any authorized person on your team can open the factory’s URL and create a new workspace using a devfile. 
+
+=== What is a devfile?
+
+A devfile is a file that describes and define a development environment:
+
+- the source code
+- the development components (browser IDE tools and application runtimes)
+- a list of pre-defined commands
+- projects to clone
+
+Devfiles are YAML files that CodeReady Workspaces consumes and transforms into a cloud workspace composed of multiple containers. The devfile can be saved in the root folder of a Git repository, a feature branch of a Git repository, a publicly accessible destination, or as a separate, locally stored artifact.
+
+When creating a workspace, CodeReady Workspaces uses that definition to initiate everything and run all the containers for the required tools and application runtimes. CodeReady Workspaces also mounts file-system volumes to make source code available to the workspace.
+
+Devfiles can be versioned with the project source code. When there is a need for a workspace to fix an old maintenance branch, the project devfile provides a definition of the workspace with the tools and the exact dependencies to start working on the old branch. Use it to instantiate workspaces on demand.
+
+CodeReady Workspaces maintains the devfile up-to-date with the tools used in the workspace:
+
+- Projects of the workspace (path, Git location, branch)
+- Commands to perform daily tasks (build, run, test, debug)
+- Runtime environment (container images to run the application)
+- Che-Theia plug-ins with tools, IDE features, and helpers that a developer would use in the workspace (Git, Java support, SonarLint, Pull Request)
+
+=== Creating a workspace from a remote devfile
+
+==== Creating a workspace from the default branch of a Git repository
+
+This section describes how to start a CodeReady Workspaces workspace using a factory URL. The factory URL is a link pointing CodeReady Workspaces to a Git source repository containing a devfile.
+
+The factory URL exist in two forms:
+
+- the short form /#$URL
+- long /f?url=$URL form that supports additional configuration parameters used in previous versions of CodeReady Workspaces
+
+Run the workspace by opening the factory URL. Two formats are available:
+
+- https://codeready-base-url/#<GIT_REPOSITORY_URL>
+This is the short format.
+
+- https://codeready-base-url/f?url=<GIT_REPOSITORY_URL>
+This long format supports additional configuration parameters.
+
+
+Here are some examples - 
+
+[Example 3.1] 
+===== 
+Create a workspace on Eclipse Che hosted by Red Hat from the default branch of the https://github.com/eclipse-che/che-server repository using the short factory URL format.
+
+https://workspaces.openshift.com/#https://github.com/eclipse-che/che-server
+=====
+
+[Example 3.2] 
+=====
+Create a workspace on Eclipse Che hosted by Red Hat from the default branch of the https://github.com/eclipse-che/che-server repository using the long factory URL format.
+
+https://workspaces.openshift.com/f?url=https://github.com/eclipse-che/che-server
+=====
+
+Lets use this example to create a new workspace using the factory url 
+
+----
+https://codeready-labs-infra.apps.cluster-9nqn5.9nqn5.sandbox1117.opentlc.com/f?url=https://github.com/nmalvankar/quarkus-reactjs-postit-app.git
+----
+
+image::lab5_sharing.png[Available Plugins, 900]
+
+
+==== Congratulations!
+
+You have successfully completed the CodeReady Workspaces Workshop!
+
+
+
+
+
+
