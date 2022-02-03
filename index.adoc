@@ -2,7 +2,7 @@
 :experimental:
 :imagesdir: images
 
-In this workshop, you will go through the following labs -
+Welcome to the CodeReady Workspaces workshop. In today's workshop, you will go through the following labs -
 
 1. <<lab_1>>
 2. <<lab_2>>
@@ -21,11 +21,13 @@ Read more about it in the https://developers.redhat.com/products/codeready-works
 
 === 1. Access Your Development Environment
 
-Use the following URL to access the CodeReady Workspaces environment
+You will use the following URL to access the CodeReady Workspaces environment
 
-<URL to be added later>
+---
+https://codeready-labs-infra.apps.cluster-gs6mb.gs6mb.sandbox502.opentlc.com/
+---
 
-To get started, access the CodeReady Workspaces instance and log in using the username
+To get started, access the CodeReady Workspaces instance using the above url and log in using the username
 and password you’ve been assigned (e.g. `{{ USER_ID }}/{{ CHE_USER_PASSWORD }}`):
 
 image::che-login.png[cdw, 700]
@@ -289,10 +291,6 @@ The content should have been changed
 
 image::lab2_debug_newvalue.png[lab2_quarkus_preview, 900]
 
-
-==== Congratulations!
-
-You have successfully run the Postit application locally and debugged the application using remote debugging
 
 [#lab_4]
 == Lab 4 - CodeReady Workspaces Plugins
