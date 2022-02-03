@@ -1,14 +1,25 @@
-= CodeReady Workspaces Workshop
 :experimental:
 :imagesdir: images
 
+= CodeReady Workspaces Workshop
+
+[.float-group]
+--
+
+[.left]
+image::TD_logo.jpeg[]   
+
+[.left]
+image::redhat_logo.png[]
+--
+
 Welcome to the CodeReady Workspaces workshop. In today's workshop, you will go through the following labs -
 
-1. <<lab_1>>
-2. <<lab_2>>
-3. <<lab_3>>
-4. <<lab_4>>
-5. <<lab_5>>
+- <<lab_1>>
+- <<lab_2>>
+- <<lab_3>>
+- <<lab_4>>
+- <<lab_5>>
 
 == What is CodeReady Workspaces?
 
@@ -19,7 +30,7 @@ Read more about it in the https://developers.redhat.com/products/codeready-works
 [#lab_1]
 == Lab 1 - Explore CodeReady Workspaces
 
-=== 1. Access Your Development Environment
+===  Access Your Development Environment
 
 You will use the following URL to access the CodeReady Workspaces environment
 
@@ -59,6 +70,7 @@ Many features of CodeReady Workspaces are accessed via *Commands*. You can see a
 
 If you ever need to run commands that you don't see in a menu, you can press kbd:[F1] to open the command window, or the more traditional kbd:[Control+SHIFT+P] (or kbd:[Command+SHIFT+P] on Mac OS X).
 
+===  Creating a new workspace
 
 Let's go back to the dashboard by clicking on the chevron (enclosed in yellow rectangle) on the top left side of the screen and create a new workspace using the following github URL.
 
@@ -113,7 +125,7 @@ image::codeready-workspace-terminal.png[codeready-workspace-terminal, 700]
 [#lab_2]
 == Lab 2 - Developing with CodeReady Workspaces 
 
-==== 1. Search a Java file
+====  Search for a file using the command palette
 
 Now the workspace has been started and loaded, I have all the tools that I need, as a developer to start working on the project.
 
@@ -127,7 +139,7 @@ Remove the `>` to search for a file. Search for the file “Post.java” and cli
 
 image::lab2_workspace_searchfile.png[workspace_search, 900]
 
-==== 2. Start the application in devmode
+==== Start the application in devmode
 
 The demo Post it application is composed of
 
@@ -211,6 +223,8 @@ Refresh the preview pane: All the titles of post items are now in uppercase.
 image::lab2_uppercase.png[lab2_quarkus_preview, 900]
 
 
+==== Explore the sample C++ and Python workspaces
+
 Let's create a C++ and/or python based workspace and try out a few simple examples. First, lets click on the chevron at the top left section and then click on Create Workspaces.
 
 
@@ -248,9 +262,9 @@ image::lab2_python.png[Python workspace, 900]
 [#lab_3]
 == Lab 3 - Debugging Applications
 
-In this lab, you will debug the coolstore microservice application using Java remote debugging and look into line-by-line code execution as the code runs on Quarkus.
+In this lab, you will debug the Postit application using Java remote debugging and look into line-by-line code execution as the code runs on Quarkus.
 
-==== 1. Enable Remote Debugging
+=== Enable Remote Debugging
 
 Remote debugging is a useful debugging technique for application development which allows looking into the code that is being executed somewhere else on a different machine and execute the code line-by-line to help investigate bugs and issues. Remote debugging is part of Java SE standard debugging architecture which you can learn more about it in https://docs.oracle.com/javase/8/docs/technotes/guides/jpda/architecture.html[Java SE docs^].
 
@@ -258,7 +272,7 @@ Quarkus in development mode enables "Live Coding" with background compilation, w
 
 When run in Developer Mode (i.e. `mvn quarkus:dev`), Quarkus will also listen for debugging sessions on port `5005` (by default). If your want to wait for the debugger to attach before running you can pass `-Ddebug` on the command line. If you don’t want the debugger at all you can use `-Ddebug=false`.
 
-==== 2. Add a breakpoint to debug the application.
+=== Add a breakpoint to debug the application.
 
 Let's add a new endpoint in the ‘getContent()’ method of Post.java (line 31)
 

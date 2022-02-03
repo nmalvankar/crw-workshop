@@ -442,11 +442,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
+<div class="openblock float-group">
+<div class="content">
+<div class="imageblock left">
+<div class="content">
+<img src="images/TD_logo.jpeg" alt="TD logo">
+</div>
+</div>
+<div class="imageblock left">
+<div class="content">
+<img src="images/redhat_logo.png" alt="redhat logo">
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>Welcome to the CodeReady Workspaces workshop. In today&#8217;s workshop, you will go through the following labs -</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
 <p><a href="#lab_1">Lab 1 - Explore CodeReady Workspaces</a></p>
 </li>
@@ -462,7 +476,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <p><a href="#lab_5">Lab 5 - Sharing workspaces</a></p>
 </li>
-</ol>
+</ul>
 </div>
 </div>
 </div>
@@ -481,7 +495,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="lab_1">Lab 1 - Explore CodeReady Workspaces</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_1_access_your_development_environment">1. Access Your Development Environment</h3>
+<h3 id="_access_your_development_environment">Access Your Development Environment</h3>
 <div class="paragraph">
 <p>You will use the following URL to access the CodeReady Workspaces environment</p>
 </div>
@@ -554,6 +568,9 @@ and password you’ve been assigned (e.g. <code>{{ USER_ID }}/{{ CHE_USER_PASSW
 <div class="paragraph">
 <p>If you ever need to run commands that you don&#8217;t see in a menu, you can press <kbd>F1</kbd> to open the command window, or the more traditional <span class="keyseq"><kbd>Control</kbd>+<kbd>SHIFT</kbd>+<kbd>P</kbd></span> (or <span class="keyseq"><kbd>Command</kbd>+<kbd>SHIFT</kbd>+<kbd>P</kbd></span> on Mac OS X).</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_creating_a_new_workspace">Creating a new workspace</h3>
 <div class="paragraph">
 <p>Let&#8217;s go back to the dashboard by clicking on the chevron (enclosed in yellow rectangle) on the top left side of the screen and create a new workspace using the following github URL.</p>
 </div>
@@ -642,7 +659,7 @@ and password you’ve been assigned (e.g. <code>{{ USER_ID }}/{{ CHE_USER_PASSW
 <h2 id="lab_2">Lab 2 - Developing with CodeReady Workspaces</h2>
 <div class="sectionbody">
 <div class="sect3">
-<h4 id="_1_search_a_java_file">1. Search a Java file</h4>
+<h4 id="_search_for_a_file_using_the_command_palette">Search for a file using the command palette</h4>
 <div class="paragraph">
 <p>Now the workspace has been started and loaded, I have all the tools that I need, as a developer to start working on the project.</p>
 </div>
@@ -669,7 +686,7 @@ and password you’ve been assigned (e.g. <code>{{ USER_ID }}/{{ CHE_USER_PASSW
 </div>
 </div>
 <div class="sect3">
-<h4 id="_2_start_the_application_in_devmode">2. Start the application in devmode</h4>
+<h4 id="_start_the_application_in_devmode">Start the application in devmode</h4>
 <div class="paragraph">
 <p>The demo Post it application is composed of</p>
 </div>
@@ -830,6 +847,9 @@ After <code>return title</code>, type <code>.upper</code> and the code completio
 <img src="images/lab2_uppercase.png" alt="lab2_quarkus_preview" width="900">
 </div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_explore_the_sample_c_and_python_workspaces">Explore the sample C++ and Python workspaces</h4>
 <div class="paragraph">
 <p>Let&#8217;s create a C++ and/or python based workspace and try out a few simple examples. First, lets click on the chevron at the top left section and then click on Create Workspaces.</p>
 </div>
@@ -891,10 +911,10 @@ After <code>return title</code>, type <code>.upper</code> and the code completio
 <h2 id="lab_3">Lab 3 - Debugging Applications</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this lab, you will debug the coolstore microservice application using Java remote debugging and look into line-by-line code execution as the code runs on Quarkus.</p>
+<p>In this lab, you will debug the Postit application using Java remote debugging and look into line-by-line code execution as the code runs on Quarkus.</p>
 </div>
-<div class="sect3">
-<h4 id="_1_enable_remote_debugging">1. Enable Remote Debugging</h4>
+<div class="sect2">
+<h3 id="_enable_remote_debugging">Enable Remote Debugging</h3>
 <div class="paragraph">
 <p>Remote debugging is a useful debugging technique for application development which allows looking into the code that is being executed somewhere else on a different machine and execute the code line-by-line to help investigate bugs and issues. Remote debugging is part of Java SE standard debugging architecture which you can learn more about it in <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/jpda/architecture.html" target="_blank" rel="noopener">Java SE docs</a>.</p>
 </div>
@@ -905,8 +925,8 @@ After <code>return title</code>, type <code>.upper</code> and the code completio
 <p>When run in Developer Mode (i.e. <code>mvn quarkus:dev</code>), Quarkus will also listen for debugging sessions on port <code>5005</code> (by default). If your want to wait for the debugger to attach before running you can pass <code>-Ddebug</code> on the command line. If you don’t want the debugger at all you can use <code>-Ddebug=false</code>.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_2_add_a_breakpoint_to_debug_the_application">2. Add a breakpoint to debug the application.</h4>
+<div class="sect2">
+<h3 id="_add_a_breakpoint_to_debug_the_application">Add a breakpoint to debug the application.</h3>
 <div class="paragraph">
 <p>Let&#8217;s add a new endpoint in the ‘getContent()’ method of Post.java (line 31)</p>
 </div>
@@ -1184,7 +1204,7 @@ This long format supports additional configuration parameters.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-02-02 22:54:15 -0500
+Last updated 2022-02-02 23:19:17 -0500
 </div>
 </div>
 </body>
