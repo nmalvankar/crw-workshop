@@ -247,7 +247,7 @@ Run the command from the workspace - "Build current algorithm"
 
 image::lab2_build.png[lab2_quarkus_preview, 900]
 
-This should create a bin.out file in the root directory. Lets run this algorithm now
+This should create a bin.out file in the root directory. Lets run this algorithm now by running the command - "Run current algorithm"
 
 image::lab2_run.png[lab2_quarkus_preview, 900]
 
