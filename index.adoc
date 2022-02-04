@@ -35,7 +35,8 @@ Read more about it in the https://developers.redhat.com/products/codeready-works
 You will use the following URL to access the CodeReady Workspaces environment
 
 ---
-https://codeready-labs-infra.apps.cluster-gs6mb.gs6mb.sandbox502.opentlc.com/
+https://codeready-labs-infra.apps.cluster-gs6mb.gs6mb.sandbox502.opentlc.com[https://codeready-labs-infra.apps.cluster-gs6mb.gs6mb.sandbox502.opentlc.com, window=_blank]
+
 ---
 
 To get started, access the CodeReady Workspaces instance using the above url and log in using the username
@@ -263,6 +264,8 @@ image::lab2_python.png[Python workspace, 900]
 == Lab 3 - Debugging Applications
 
 In this lab, you will debug the Postit application using Java remote debugging and look into line-by-line code execution as the code runs on Quarkus.
+
+Lets go back to the workspaces by clicking on the chevron on the top left of CodeReady Workspaces. And now start the postit-app workspace.
 
 === Enable Remote Debugging
 
